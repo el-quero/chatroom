@@ -1,0 +1,421 @@
+/* Reset dasar */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Body dan app container */
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #f9fafb;
+}
+
+.app {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  background: #fff;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.app > .screen {
+  display: none;
+}
+
+.app > .screen.active {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Form login */
+.screen .form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+}
+
+.screen .form-input {
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.screen h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #111;
+  border-bottom: 4px solid #555;
+  padding: 5px 0px;
+  display: inline-block;
+}
+
+.screen .form-input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.screen .form-input input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #555;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.screen .form-input input:focus {
+  outline: none;
+  border-color: #111;
+}
+
+.screen .form-input button {
+  padding: 10px 20px;
+  background: #111;
+  color: #eee;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.screen .form-input button:hover {
+  background: #333;
+}
+
+/* Header chat screen */
+.chat-screen .header {
+  background: #111;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  position: relative;
+  user-select: none;
+}
+
+.chat-screen .header .logo {
+  font-size: 18px;
+  color: #eee;
+  font-weight: 600;
+}
+
+/* Tombol titik tiga (hamburger) */
+#menu-toggle {
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #eee;
+  cursor: pointer;
+  padding: 6px 8px;
+  line-height: 1;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+#menu-toggle:hover,
+#menu-toggle:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: 52px; /* di bawah header */
+  right: 16px;
+  background-color: #222;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  padding: 8px 0;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.dropdown-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Item dropdown menu */
+.dropdown-item {
+  background: transparent;
+  border: none;
+  color: #eee;
+  padding: 12px 20px;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-weight: 500;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #444;
+  outline: none;
+}
+
+/* Chat message container */
+.chat-screen .messeges {
+  width: 100%;
+  height: calc(100% - 100px);
+  background: #f5f5f5;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual message */
+.chat-screen .messeges .messege {
+  display: flex;
+  padding: 10px;
+}
+
+.chat-screen .messeges .messege > div {
+  max-width: 80%;
+  background: #fff;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+.chat-screen .messeges .messege.my-messege {
+  justify-content: flex-end;
+}
+
+.chat-screen .messeges .messege.other-messege {
+  justify-content: flex-start;
+}
+
+.chat-screen .messeges .messege .name {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.chat-screen .messeges .messege .text {
+  line-height: 1.4;
+}
+
+.chat-screen .messeges .update {
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Input dan tombol kirim */
+.chat-screen .typebox {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.chat-screen .typebox input {
+  flex: 1;
+  height: 50px;
+  font-size: 18px;
+  padding: 0 15px;
+  transition: border-color 0.3s ease;
+}
+
+.chat-screen .typebox input:focus {
+  border-color: #111;
+}
+
+.chat-screen .typebox button {
+  width: 80px;
+  height: 100%;
+  background: #111;
+  color: #eee;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chat-screen .typebox button:hover {
+  background-color: #333;
+}
+
+/* Popup daftar anggota */
+.members-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.members-popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #111;
+  font-weight: 700;
+  font-size: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.popup-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-content li {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+  color: #333;
+}
+
+.member-item {
+  position: relative;
+}
+
+.member-name {
+  font-weight: 600;
+}
+
+.member-role {
+  margin-left: 10px;
+  font-style: italic;
+  font-size: 13px;
+  color: #666;
+  min-width: 80px;
+  text-align: right;
+}
+
+/* Styling tombol titik tiga pada daftar anggota (menu member) */
+.menu-button {
+  background: transparent;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  user-select: none;
+  line-height: 1;
+}
+
+.menu-button:hover {
+  color: #000;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* Dropdown menu container untuk opsi member */
+.member-menu {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+/* Dropdown menu items untuk opsi member */
+.member-menu .menu-item {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #444;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.member-menu .menu-item:hover {
+  background-color: #f2f2f2;
+}
+
+.member-menu .delete-option {
+  color: #b00020;
+  font-weight: 600;
+}
+
+.member-menu .change-role-option {
+  color: #1a73e8;
+}
+
+/* Tombol popup tutup */
+.popup-content button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+  background-color: #444;
+}
+
+/* Indikator status online anggota */
+.member-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 6px;
+}
