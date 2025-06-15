@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BIBDRoom</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="screen join-screen active">
+        <div class="form">
+          <h2>BIBD</h2>
+
+          <div class="form-input">
+            <label>Nama</label>
+            <input type="text" id="username" placeholder="Masukkan nama" />
+          </div>
+
+          <div class="form-input">
+            <label>Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Masukkan password"
+            />
+          </div>
+
+          <div class="form-input">
+            <button id="join-user">Masuk</button>
+          </div>
+
+          <div class="form-input">
+            <p id="login-status" style="color: red"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen chat-screen">
+        <div class="header">
+          <div class="header-left">
+            <div class="logo">BIBD Club</div>
+          </div>
+          <div class="header-right">
+            <!-- Tombol titik tiga untuk menu -->
+            <button id="menu-toggle" aria-label="Menu navigasi">⋮</button>
+            <!-- Dropdown Menu -->
+            <nav
+              class="dropdown-menu"
+              role="menu"
+              aria-label="Menu navigasi utama"
+            >
+              <button
+                class="dropdown-item"
+                id="show-members"
+                role="menuitem"
+                type="button"
+              >
+                Daftar Anggota
+              </button>
+              <button
+                class="dropdown-item"
+                id="clear-chat"
+                role="menuitem"
+                type="button"
+              >
+                Clear Chat
+              </button>
+              <button
+                class="dropdown-item"
+                id="exit-chat"
+                role="menuitem"
+                type="button"
+              >
+                Keluar
+              </button>
+            </nav>
+          </div>
+        </div>
+
+        <div class="messeges"></div>
+        <div class="typebox">
+          <input type="text" id="messege-input" />
+          <button id="send-messege">Kirim</button>
+        </div>
+      </div>
+
+      <div class="members-popup hidden">
+        <div class="popup-content">
+          <h3>Daftar Anggota</h3>
+          <ul id="members-list"></ul>
+          <button id="close-members">Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+  </body>
+</html>
